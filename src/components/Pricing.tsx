@@ -212,8 +212,8 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
               <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Heart className="w-6 h-6 text-purple-600 transition-all duration-300 hover:scale-125 hover:text-purple-700" />
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Interest-Free Finance</h3>
-              <p className="text-gray-600 text-sm">0% APR available on treatments over £500</p>
+              <h3 className="font-semibold text-gray-900 mb-2"> Dental Finance</h3>
+              <p className="text-gray-600 text-sm">Available on treatments over £500</p>
             </div>
             
             <div className="text-center p-4">
