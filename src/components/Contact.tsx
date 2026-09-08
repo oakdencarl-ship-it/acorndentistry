@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Car, Train, Bus, Armchair as Wheelchair, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 
 const Contact = () => {
@@ -25,29 +26,18 @@ const Contact = () => {
     setStatus('submitting');
 
     try {
-      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`;
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-        },
-        body: JSON.stringify({
+      const { data, error } = await supabase!.functions.invoke('send-contact-email', {
+        body: {
           name: formData.name,
           email: formData.email,
           phone: formData.phone || null,
           service: formData.service || null,
           message: formData.message,
-        }),
+        },
       });
 
-      if (!response.ok) {
-        const errData = await response.json().catch(() => ({}));
-        throw new Error(errData.error || `Request failed (${response.status})`);
-      }
-
-      const data = await response.json();
-      if (data.error) throw new Error(data.error);
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
 
       setStatus('success');
       setFormData({ name: '', email: '', phone: '', service: '', message: '' });
