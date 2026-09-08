@@ -5,6 +5,13 @@
 [build.environment]
   NODE_VERSION = "20"
 
+  # Vite inlines VITE_* vars into the client bundle at build time - that is by
+  # design, since the browser needs them. The Supabase anon key is a public,
+  # RLS-gated identifier (see supabase/migrations: RLS is on, anon may only
+  # INSERT into contact_submissions), so the secrets scanner finding it in
+  # dist/ is a false positive rather than a leak.
+  SECRETS_SCAN_OMIT_KEYS = "VITE_SUPABASE_URL,VITE_SUPABASE_ANON_KEY"
+
 # SPA fallback so refreshing/deep-linking doesn't 404.
 [[redirects]]
   from = "/*"
