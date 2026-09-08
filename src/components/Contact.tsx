@@ -26,7 +26,9 @@ const Contact = () => {
     setStatus('submitting');
 
     try {
-      const { data, error } = await supabase!.functions.invoke('send-contact-email', {
+      if (!supabase) throw new Error('Database connection not available');
+
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
         body: {
           name: formData.name,
           email: formData.email,
@@ -37,13 +39,13 @@ const Contact = () => {
       });
 
       if (error) throw error;
-      if (data?.error) throw new Error(data.error);
+      if (!data?.success) throw new Error('Contact request was not accepted');
 
       setStatus('success');
       setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Contact form error:', err);
-      setErrorMessage(err?.message || 'Unknown error');
+      setErrorMessage('We could not send your message. Please call us on 01704 544 479.');
       setStatus('error');
     }
   };
