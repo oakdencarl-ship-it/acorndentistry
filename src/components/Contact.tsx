@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Car, Train, Bus, Armchair as Wheelchair, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -24,19 +24,29 @@ const Contact = () => {
     setStatus('submitting');
 
     try {
-      if (!supabase) throw new Error('Contact form is not configured');
-
-      const { error } = await supabase
-        .from('contact_submissions')
-        .insert({
+      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`;
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           phone: formData.phone || null,
           service: formData.service || null,
-          message: formData.message
-        });
+          message: formData.message,
+        }),
+      });
 
-      if (error) throw error;
+      if (!response.ok) {
+        const errData = await response.json().catch(() => ({}));
+        throw new Error(errData.error || `Request failed (${response.status})`);
+      }
+
+      const data = await response.json();
+      if (data.error) throw new Error(data.error);
 
       setStatus('success');
       setFormData({ name: '', email: '', phone: '', service: '', message: '' });
@@ -105,8 +115,8 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
                     <p className="text-gray-600">
-                      <a href="mailto:hello@acorndentistry.co.uk" className="text-primary-600 hover:underline">
-                        hello@acorndentistry.co.uk
+                      <a href="mailto:acorndentist@gmail.com" className="text-primary-600 hover:underline">
+                        acorndentist@gmail.com
                       </a>
                     </p>
                   </div>
