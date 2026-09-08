@@ -148,7 +148,7 @@ const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
                 <div className="mb-6">
                   <h4 className="font-semibold text-gray-900 mb-2">Specialties</h4>
                   <div className="flex flex-wrap gap-2">
-                    {['General Dentistry', 'Cosmetic Dentistry', 'Implants'].map((specialty) => (
+                    {['General Dentistry', 'Cosmetic Dentistry', 'Dental Sedation'].map((specialty) => (
                       <span key={specialty} className="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm">
                         {specialty}
                       </span>
@@ -158,8 +158,8 @@ const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
                 
                 <p className="text-gray-600 leading-relaxed">
                   Dr. Oakden founded Acorn Dentistry with a vision to provide exceptional dental care 
-                  in a comfortable, welcoming environment. She specializes in cosmetic dentistry and 
-                  dental implants, and takes pride in building lasting relationships with every patient. 
+                  in a comfortable, welcoming environment. She specialises in general and cosmetic dentistry and 
+                  Intravenous sedation for nervous patients. She takes pride in building lasting relationships with every patient. 
                   Her gentle, patient-centered approach ensures you always feel at ease.
                 </p>
               </div>
