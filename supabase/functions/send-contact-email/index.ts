@@ -7,7 +7,6 @@ const corsHeaders = {
 };
 
 const RECIPIENT_EMAIL = "acorndentist@gmail.com";
-const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
@@ -42,50 +41,62 @@ Deno.serve(async (req: Request) => {
 
     if (dbError) console.error("Database save failed:", dbError.message);
 
-    // Send email if Resend is configured
-    if (RESEND_API_KEY) {
-      const serviceLabels: Record<string, string> = {
-        checkup: "Routine Check-up",
-        cleaning: "Professional Cleaning",
-        whitening: "Teeth Whitening",
-        cosmetic: "Cosmetic Dentistry",
-        orthodontics: "Orthodontics",
-        emergency: "Emergency Care",
-        other: "Other",
-      };
+    // Send email via Resend
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
 
-      const serviceLabel = service ? (serviceLabels[service] || service) : "Not specified";
+    if (!resendApiKey) {
+      console.error("RESEND_API_KEY secret is not set");
+      return new Response(
+        JSON.stringify({ error: "Email service not configured" }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
 
-      const emailHtml = `
-        <h2>New Contact Form Enquiry</h2>
-        <p><strong>From:</strong> ${name} (${email})</p>
-        <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
-        <p><strong>Service of Interest:</strong> ${serviceLabel}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, "<br>")}</p>
-        <hr>
-        <p style="color:#888;font-size:12px;">Submitted from the Acorn Dentistry Southport website at ${new Date().toISOString()}</p>
-      `;
+    const serviceLabels: Record<string, string> = {
+      checkup: "Routine Check-up",
+      cleaning: "Professional Cleaning",
+      whitening: "Teeth Whitening",
+      cosmetic: "Cosmetic Dentistry",
+      orthodontics: "Orthodontics",
+      emergency: "Emergency Care",
+      other: "Other",
+    };
 
-      const res = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${RESEND_API_KEY}`,
-        },
-        body: JSON.stringify({
-          from: "Acorn Dentistry Website <onboarding@resend.dev>",
-          to: [RECIPIENT_EMAIL],
-          reply_to: email,
-          subject: `New Contact Form Enquiry from ${name}`,
-          html: emailHtml,
-        }),
-      });
+    const serviceLabel = service ? (serviceLabels[service] || service) : "Not specified";
 
-      if (!res.ok) {
-        const errText = await res.text();
-        console.error("Resend API error:", res.status, errText);
-      }
+    const emailHtml = `
+      <h2>New Contact Form Enquiry</h2>
+      <p><strong>From:</strong> ${name} (${email})</p>
+      <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
+      <p><strong>Service of Interest:</strong> ${serviceLabel}</p>
+      <p><strong>Message:</strong></p>
+      <p>${message.replace(/\n/g, "<br>")}</p>
+      <hr>
+      <p style="color:#888;font-size:12px;">Submitted from the Acorn Dentistry Southport website at ${new Date().toISOString()}</p>
+    `;
+
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${resendApiKey}`,
+      },
+      body: JSON.stringify({
+        from: "Acorn Dentistry Website <onboarding@resend.dev>",
+        to: [RECIPIENT_EMAIL],
+        reply_to: email,
+        subject: `New Contact Form Enquiry from ${name}`,
+        html: emailHtml,
+      }),
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      console.error("Resend API error:", res.status, errText);
+      return new Response(
+        JSON.stringify({ error: `Email sending failed: ${res.status}` }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
     }
 
     return new Response(
@@ -93,6 +104,7 @@ Deno.serve(async (req: Request) => {
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (err) {
+    console.error("Edge function error:", err);
     return new Response(
       JSON.stringify({ error: err.message || "Failed to submit form" }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
