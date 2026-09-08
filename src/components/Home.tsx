@@ -195,7 +195,6 @@ const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
             {[
               'General Dentistry',
               'Cosmetic Dentistry',
-              'Orthodontics',
               'Emergency Care',
               'Sedation',
               'Facial Aesthetics'
