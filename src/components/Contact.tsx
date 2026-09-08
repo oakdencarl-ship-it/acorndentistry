@@ -24,6 +24,8 @@ const Contact = () => {
     setStatus('submitting');
 
     try {
+      if (!supabase) throw new Error('Contact form is not configured');
+
       const { error } = await supabase
         .from('contact_submissions')
         .insert({
