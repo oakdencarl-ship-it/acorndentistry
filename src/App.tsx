@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Treatments from './components/Treatments';
 import Pricing from './components/Pricing';
 import Contact from './components/Contact';
+import WhatsAppWidget from './components/WhatsAppWidget';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -39,6 +40,7 @@ function App() {
           </main>
         </div>
       </div>
+      <WhatsAppWidget />
     </>
   );
 }

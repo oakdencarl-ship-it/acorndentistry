@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Clock, Menu, X } from 'lucide-react';
+import { Phone, Clock, Menu, X, MessageCircle } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: string;
@@ -82,8 +82,8 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
               <div className="flex items-center">
                 <Phone className="w-4 h-4 mr-2" />
                 <a href="tel:+441704544479" className="hover:underline">01704 544 479</a>
-                <WhatsApp className="w-4 h-4 mr-2" />
-                <a href="tel:+447443313128" className="hover:underline">07743 313 128</a>
+                <MessageCircle className="w-4 h-4 mr-2" />
+                <a href="https://wa.me/447443313128" className="hover:underline">07443 131 128</a>
               </div>
               <div className="flex items-center">
                 <Clock className="w-4 h-4 mr-2" />
