@@ -14,7 +14,7 @@ const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
-            alt="Modern dental office"
+            alt="Modern dental treatment room at Acorn Dentistry Southport"
             className="w-full h-full object-cover opacity-20"
             loading="eager"
           />
@@ -24,11 +24,12 @@ const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" itemScope itemType="https://schema.org/Dentist">
           <div className="text-center relative z-10">
             <h1 className="text-4xl md:text-6xl font-bold mb-6" itemProp="name">
-              Your Smile is Our Priority
+              Your Smile is Our Priority — Dentist in Southport
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-accent-300 max-w-3xl mx-auto" itemProp="description">
               Professional dental care in the heart of Southport. We provide comprehensive 
-              dental services with a gentle, caring approach for the whole family.
+              dental services — from routine check-ups to cosmetic dentistry, IV sedation and 
+              facial aesthetics — with a gentle, caring approach for the whole family.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
@@ -126,7 +127,7 @@ const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
               <div className="md:col-span-2">
                 <img 
                   src="/dr-kate-oakden.jpg" 
-                  alt="Dr. Kate Oakden, Principal Dentist"
+                  alt="Dr Kate Oakden, Principal Dentist and Practice Owner at Acorn Dentistry Southport"
                   className="w-full h-full object-cover min-h-[300px]"
                 />
               </div>
@@ -174,7 +175,7 @@ const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.pexels.com/photos/6749778/pexels-photo-6749778.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
-            alt="Dental tools and equipment"
+            alt="Dental instruments and equipment used at Acorn Dentistry Southport"
             className="w-full h-full object-cover opacity-5"
             loading="lazy"
           />
