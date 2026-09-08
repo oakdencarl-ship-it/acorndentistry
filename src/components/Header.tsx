@@ -82,6 +82,8 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
               <div className="flex items-center">
                 <Phone className="w-4 h-4 mr-2" />
                 <a href="tel:+441704544479" className="hover:underline">01704 544 479</a>
+                <WhatsApp className="w-4 h-4 mr-2" />
+                <a href="tel:+447443313128" className="hover:underline">07743 313 128</a>
               </div>
               <div className="flex items-center">
                 <Clock className="w-4 h-4 mr-2" />
