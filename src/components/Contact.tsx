@@ -94,6 +94,7 @@ const Contact = () => {
                     <h3 className="font-semibold text-gray-900 mb-1">Phone Numbers</h3>
                     <p className="text-gray-600">
                       Reception: <a href="tel:01704544479" className="text-primary-600 hover:underline">01704 544 479</a><br />
+                      WhatsApp: <a href="tel:07443313128" className="text-primary-600 hover:underline">07443 313 128</a><br />
                       Emergency: <a href="tel:01704544479" className="text-red-600 hover:underline">01704 544 479</a>
                     </p>
                   </div>
