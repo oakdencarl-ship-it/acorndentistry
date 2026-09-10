@@ -33,11 +33,11 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
     { treatment: 'Prescription Skin Peel', price: 'from £120' },
     { treatment: 'Skin Boosters', price: 'from £180' },
     { treatment: 'Jaw Slimming Treatment', price: '£300' },
-    { treatment: 'Consultation', price: '£50' }
+    { treatment: 'Consultation', price: '£30' }
   ];
 
   const sedationServices = [
-    { treatment: 'IV Sedation Consultation', price: '£85' },
+    { treatment: 'IV Sedation Consultation', price: '£30' },
     { treatment: 'IV Sedation (per hour)', price: '£350' },
     { treatment: 'Simple Extraction with IV Sedation', price: '£450' },
     { treatment: 'Complex Extraction with IV Sedation', price: '£650' },
@@ -135,7 +135,7 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-gray-900">Sedation Services</h2>
-                <p className="text-gray-600">Comfortable, anxiety-free dental treatment with IV sedation</p>
+                <p className="text-gray-600">Comfortable, anxiety-free dental treatment with IV sedation. Consultation requires routine Checkup.</p>
               </div>
             </div>
             
