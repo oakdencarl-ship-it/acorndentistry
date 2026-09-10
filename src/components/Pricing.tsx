@@ -119,7 +119,7 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
             
             <div className="mt-6 p-4 bg-pink-50 rounded-lg">
               <p className="text-sm text-pink-800">
-                <strong>Note:</strong> All facial aesthetic treatments include a comprehensive consultation. 
+                <strong>Note:</strong> All completed facial aesthetic treatments include the comprehensive consultation fee. 
                 Results typically last 3-6 months for anti-wrinkle treatments and 6-12 months for skin boosters.
               </p>
             </div>
@@ -135,7 +135,7 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-gray-900">Sedation Services</h2>
-                <p className="text-gray-600">Comfortable, anxiety-free dental treatment with IV sedation. Consultation requires routine Checkup.</p>
+                <p className="text-gray-600">Comfortable, anxiety-free dental treatment with IV sedation. Complete Consultation requires Comprehensive Examination.</p>
               </div>
             </div>
             
