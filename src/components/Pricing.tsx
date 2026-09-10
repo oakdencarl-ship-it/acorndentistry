@@ -63,6 +63,7 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We believe in clear, upfront pricing with no hidden costs. Explore our treatment fees 
             for private dentistry, facial aesthetics, sedation and hygiene services, plus flexible payment options.
+            As part of our commitment to whole-family care, children of registered active patients receive free comprehensive dental examinations when their parent or guardian is an active patient.
           </p>
         </div>
 
