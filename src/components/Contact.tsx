@@ -28,21 +28,25 @@ const Contact = () => {
     try {
       if (!supabase) throw new Error('Database connection not available');
 
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone || null,
-          service: formData.service || null,
-          message: formData.message,
-        },
-      });
+      const submission = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || null,
+        service: formData.service || null,
+        message: formData.message,
+      };
 
-      if (error) throw error;
-      if (!data?.success) throw new Error('Contact request was not accepted');
+      const { error: dbError } = await supabase
+        .from('contact_submissions')
+        .insert(submission);
+
+      if (dbError) throw dbError;
 
       setStatus('success');
       setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+
+      supabase.functions.invoke('send-contact-email', { body: submission })
+        .catch((err) => console.error('Email notification failed (submission was still saved):', err));
     } catch (err: unknown) {
       console.error('Contact form error:', err);
       const msg = err instanceof Error ? err.message : 'Unknown error';
