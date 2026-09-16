@@ -23,9 +23,9 @@ const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" itemScope itemType="https://schema.org/Dentist">
           <div className="text-center relative z-10">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6" itemProp="name">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6" itemProp="name">
               Your Smile is Our Priority — Dentist in Southport
-            </h1>
+            </h2>
             <p className="text-xl md:text-2xl mb-8 text-accent-300 max-w-3xl mx-auto" itemProp="description">
               Professional dental care in the heart of Southport. We provide comprehensive 
               dental services — from routine check-ups to cosmetic dentistry, IV sedation and 

@@ -57,9 +57,9 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Dental Treatment Pricing in Southport
-          </h1>
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We believe in clear, upfront pricing with no hidden costs. Explore our treatment fees 
             for private dentistry, facial aesthetics, sedation and hygiene services, plus flexible payment options.

@@ -240,9 +240,9 @@ const Treatments = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Dental Treatments in Southport
-          </h1>
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We offer a comprehensive range of dental services to keep your smile healthy, 
             beautiful, and functional for life — from routine check-ups and hygiene to cosmetic 

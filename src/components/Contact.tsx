@@ -65,9 +65,9 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Contact Acorn Dentistry Southport
-          </h1>
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Get in touch to book your appointment or ask any questions about our dental services.
           </p>
