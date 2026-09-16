@@ -45,8 +45,11 @@ const Contact = () => {
       setStatus('success');
       setFormData({ name: '', email: '', phone: '', service: '', message: '' });
 
-      supabase.functions.invoke('send-contact-email', { body: submission })
-        .catch((err) => console.error('Email notification failed (submission was still saved):', err));
+      try {
+        await supabase.functions.invoke('send-contact-email', { body: submission });
+      } catch (emailErr) {
+        console.error('Email notification failed (submission was still saved):', emailErr);
+      }
     } catch (err: unknown) {
       console.error('Contact form error:', err);
       const msg = err instanceof Error ? err.message : 'Unknown error';
