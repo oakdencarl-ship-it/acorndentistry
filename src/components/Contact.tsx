@@ -52,7 +52,14 @@ const Contact = () => {
       }
     } catch (err: unknown) {
       console.error('Contact form error:', err);
-      const msg = err instanceof Error ? err.message : 'Unknown error';
+      let msg = 'Unknown error';
+      if (err instanceof Error) {
+        msg = err.message;
+      } else if (err && typeof err === 'object' && 'message' in err) {
+        msg = String((err as { message: unknown }).message);
+      } else if (typeof err === 'string') {
+        msg = err;
+      }
       setErrorMessage(`We could not send your message (${msg}). Please try again, or call us on 01704 544 479.`);
       setStatus('error');
     }
