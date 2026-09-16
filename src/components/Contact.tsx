@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Car, Train, Bus, Armchair as Wheelchair, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 
 
 const Contact = () => {
@@ -26,30 +25,26 @@ const Contact = () => {
     setStatus('submitting');
 
     try {
-      if (!supabase) throw new Error('Database connection not available');
+      const response = await fetch('/api/contact-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || null,
+          service: formData.service || null,
+          message: formData.message,
+        }),
+      });
 
-      const submission = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone || null,
-        service: formData.service || null,
-        message: formData.message,
-      };
+      const data = await response.json();
 
-      const { error: dbError } = await supabase
-        .from('contact_submissions')
-        .insert(submission);
-
-      if (dbError) throw dbError;
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || 'Failed to submit form');
+      }
 
       setStatus('success');
       setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-
-      try {
-        await supabase.functions.invoke('send-contact-email', { body: submission });
-      } catch (emailErr) {
-        console.error('Email notification failed (submission was still saved):', emailErr);
-      }
     } catch (err: unknown) {
       console.error('Contact form error:', err);
       let msg = 'Unknown error';
