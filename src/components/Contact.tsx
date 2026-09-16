@@ -45,7 +45,8 @@ const Contact = () => {
       setFormData({ name: '', email: '', phone: '', service: '', message: '' });
     } catch (err: unknown) {
       console.error('Contact form error:', err);
-      setErrorMessage('We could not send your message. Please call us on 01704 544 479.');
+      const msg = err instanceof Error ? err.message : 'Unknown error';
+      setErrorMessage(`We could not send your message (${msg}). Please try again, or call us on 01704 544 479.`);
       setStatus('error');
     }
   };
@@ -225,7 +226,7 @@ const Contact = () => {
                 <div>
                   <h3 className="font-semibold text-red-900">Something went wrong</h3>
                   <p className="text-sm text-red-800 mt-1">
-                    {errorMessage || 'We couldn\'t send your message.'} Please try again, or call us directly at 01704 544 479.
+                    {errorMessage}
                   </p>
                 </div>
               </div>
