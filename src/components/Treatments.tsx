@@ -240,10 +240,10 @@ const Treatments = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="mb-6 text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
             Dental Treatments in Southport
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-600 md:text-xl">
             We offer a comprehensive range of dental services to keep your smile healthy, 
             beautiful, and functional for life — from routine check-ups and hygiene to cosmetic 
             dentistry, orthodontics, IV sedation and facial aesthetics.
@@ -257,9 +257,9 @@ const Treatments = () => {
             const IconComponent = category.icon;
             
             return (
-              <div key={categoryIndex} className="bg-white rounded-xl shadow-lg p-8">
-                <div className="flex items-center mb-6">
-                  <div className={`${colors.bg} w-12 h-12 rounded-full flex items-center justify-center mr-4`}>
+              <div key={categoryIndex} className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+                <div className="mb-6 flex items-center gap-4">
+                  <div className={`${colors.bg} flex h-12 w-12 shrink-0 items-center justify-center rounded-full`}>
                     <IconComponent className={`w-6 h-6 ${colors.icon}`} />
                   </div>
                   <h2 className="text-2xl font-bold text-gray-900">{category.category}</h2>
@@ -267,11 +267,11 @@ const Treatments = () => {
                 
                 <div className="grid md:grid-cols-2 gap-6">
                   {category.services.map((service, serviceIndex) => (
-                    <div key={serviceIndex} className={`border-2 ${colors.border} rounded-lg p-6 hover:shadow-md transition-shadow`}>
+                    <div key={serviceIndex} className={`rounded-lg border ${colors.border} p-5 transition-shadow hover:shadow-sm sm:p-6`}>
                       <h3 className="text-lg font-semibold text-gray-900 mb-3">{service.name}</h3>
                       <p className="text-gray-600 mb-4 leading-relaxed">{service.description}</p>
                       
-                      <div className="flex justify-between items-center text-sm">
+                      <div className="flex flex-col gap-2 text-sm sm:flex-row sm:items-center sm:justify-between">
                         <div className="flex items-center">
                           <Clock className="w-4 h-4 mr-1 text-gray-400" />
                           <span className="text-gray-500">{service.duration}</span>
@@ -287,21 +287,21 @@ const Treatments = () => {
         </div>
 
         {/* Emergency Notice */}
-        <div id="emergency-section" className="mt-12 bg-red-50 border-2 border-red-200 rounded-xl p-8 text-center">
-          <div className="flex items-center justify-center mb-4">
-            <Zap className="w-8 h-8 text-red-600 mr-3" />
+        <div id="emergency-section" className="mt-12 rounded-lg border border-red-200 bg-red-50 p-6 text-center sm:p-8">
+          <div className="mb-4 flex items-center justify-center">
+            <Zap className="mr-3 h-8 w-8 shrink-0 text-red-600" />
             <h2 className="text-2xl font-bold text-red-800">Dental Emergency?</h2>
           </div>
           <p className="text-red-700 mb-4 text-lg">
             We provide same-day emergency appointments for urgent dental problems.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:01704544479" className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors">
+            <a href="tel:01704544479" className="rounded-lg bg-red-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-red-700">
               Emergency Line: 01704 544 479
             </a>
             <button 
               onClick={() => setShowEmergencyModal(true)}
-              className="border-2 border-red-600 text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-red-600 hover:text-white transition-colors"
+              className="rounded-lg border-2 border-red-600 px-6 py-3 font-semibold text-red-600 transition-colors hover:bg-red-600 hover:text-white"
             >
               What Constitutes an Emergency?
             </button>
@@ -309,7 +309,7 @@ const Treatments = () => {
         </div>
 
         {/* Treatment Philosophy */}
-        <div className="mt-12 bg-gradient-to-r from-primary-600 to-purple-600 text-white rounded-xl p-8">
+        <div className="mt-12 rounded-lg bg-gradient-to-r from-primary-600 to-purple-600 p-6 text-white sm:p-8">
           <div className="text-center">
             <h2 className="text-2xl font-bold mb-4">Our Treatment Philosophy</h2>
             <p className="text-lg text-primary-100 max-w-4xl mx-auto leading-relaxed">
@@ -323,19 +323,20 @@ const Treatments = () => {
 
         {/* Emergency Modal */}
         {showEmergencyModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-              <div className="p-6">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
+            <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-lg bg-white shadow-xl">
+              <div className="p-5 sm:p-6">
                 <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center">
-                    <div className="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                  <div className="flex min-w-0 items-center gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-100">
                       <AlertTriangle className="w-6 h-6 text-red-600" />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-900">Dental Emergencies</h2>
+                    <h2 className="text-2xl font-bold leading-tight text-gray-900">Dental Emergencies</h2>
                   </div>
                   <button
                     onClick={() => setShowEmergencyModal(false)}
-                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                    className="ml-3 shrink-0 text-gray-400 transition-colors hover:text-gray-600"
+                    aria-label="Close emergency information"
                   >
                     <X className="w-6 h-6" />
                   </button>

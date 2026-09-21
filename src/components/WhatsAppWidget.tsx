@@ -17,12 +17,12 @@ export default function WhatsAppWidget() {
 
   return (
     <div
-      className={`fixed bottom-5 right-5 z-[60] transition-all duration-500 ${
+      className={`fixed bottom-4 right-4 z-[60] transition-all duration-500 sm:bottom-5 sm:right-5 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
     >
       {open && (
-        <div className="mb-3 w-72 rounded-2xl bg-white shadow-2xl ring-1 ring-black/5 overflow-hidden animate-[fadeIn_0.2s_ease-out]">
+        <div className="mb-3 w-[calc(100vw-2rem)] max-w-72 overflow-hidden rounded-lg bg-white shadow-xl ring-1 ring-black/5 animate-[fadeIn_0.2s_ease-out]">
           <div className="bg-[#075E54] px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">

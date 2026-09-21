@@ -75,10 +75,10 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="mb-6 text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
             Contact Acorn Dentistry Southport
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-600 md:text-xl">
             Get in touch to book your appointment or ask any questions about our dental services.
           </p>
         </div>
@@ -87,12 +87,12 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Practice Details */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Practice Information</h2>
               
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <MapPin className="w-6 h-6 text-primary-600 mr-4 mt-1" />
+                  <MapPin className="mr-4 mt-1 h-6 w-6 shrink-0 text-primary-600" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
                     <p className="text-gray-600">
@@ -104,7 +104,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <Phone className="w-6 h-6 text-primary-600 mr-4 mt-1" />
+                  <Phone className="mr-4 mt-1 h-6 w-6 shrink-0 text-primary-600" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Phone Numbers</h3>
                     <p className="text-gray-600">
@@ -116,7 +116,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <Mail className="w-6 h-6 text-primary-600 mr-4 mt-1" />
+                  <Mail className="mr-4 mt-1 h-6 w-6 shrink-0 text-primary-600" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
                     <p className="text-gray-600">
@@ -130,7 +130,7 @@ const Contact = () => {
             </div>
 
             {/* Opening Hours */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
               <div className="flex items-center mb-6">
                 <Clock className="w-6 h-6 text-purple-600 mr-3" />
                 <h2 className="text-2xl font-bold text-gray-900">Opening Hours</h2>
@@ -138,9 +138,9 @@ const Contact = () => {
               
               <div className="space-y-3">
                 {openingHours.map((schedule, index) => (
-                  <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
+                  <div key={index} className="flex items-center justify-between gap-4 border-b border-gray-100 py-2 last:border-b-0">
                     <span className="font-medium text-gray-900">{schedule.day}</span>
-                    <span className={`${schedule.hours === 'Closed' ? 'text-red-600' : 'text-gray-600'}`}>
+                    <span className={`text-right ${schedule.hours === 'Closed' ? 'text-red-600' : 'text-gray-600'}`}>
                       {schedule.hours}
                     </span>
                   </div>
@@ -156,12 +156,12 @@ const Contact = () => {
             </div>
 
             {/* Getting Here */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Getting Here</h2>
               
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <Car className="w-5 h-5 text-primary-600 mr-3 mt-1" />
+                  <Car className="mr-3 mt-1 h-5 w-5 shrink-0 text-primary-600" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">By Car</h3>
                     <p className="text-gray-600 text-sm">
@@ -172,7 +172,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <Train className="w-5 h-5 text-purple-600 mr-3 mt-1" />
+                  <Train className="mr-3 mt-1 h-5 w-5 shrink-0 text-purple-600" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">By Train</h3>
                     <p className="text-gray-600 text-sm">
@@ -183,7 +183,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <Bus className="w-5 h-5 text-accent-600 mr-3 mt-1" />
+                  <Bus className="mr-3 mt-1 h-5 w-5 shrink-0 text-accent-600" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">By Bus</h3>
                     <p className="text-gray-600 text-sm">
@@ -194,7 +194,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <Wheelchair className="w-5 h-5 text-green-600 mr-3 mt-1" />
+                  <Wheelchair className="mr-3 mt-1 h-5 w-5 shrink-0 text-green-600" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Accessibility</h3>
                     <p className="text-gray-600 text-sm">
@@ -208,7 +208,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white rounded-xl shadow-lg p-8">
+          <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
             
             {status === 'success' && (
@@ -254,7 +254,7 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary-500"
                     placeholder="Your full name"
                   />
                 </div>
@@ -270,7 +270,7 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary-500"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -287,7 +287,7 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary-500"
                     placeholder="Your phone number"
                   />
                 </div>
@@ -301,7 +301,7 @@ const Contact = () => {
                     name="service"
                     value={formData.service}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary-500"
                   >
                     <option value="">Select a service</option>
                     <option value="checkup">Routine Check-up</option>
@@ -326,7 +326,7 @@ const Contact = () => {
                   rows={5}
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-primary-500"
                   placeholder="Please tell us about your dental needs or any questions you have..."
                 ></textarea>
               </div>
@@ -335,7 +335,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="bg-primary-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed inline-flex items-center gap-2"
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-primary-700 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {status === 'submitting' ? (
                     <>
@@ -359,9 +359,9 @@ const Contact = () => {
         </div>
 
         {/* Map Placeholder */}
-        <div className="mt-12 bg-white rounded-xl shadow-lg p-8">
+        <div className="mt-12 rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Find Us</h2>
-          <div className="rounded-lg overflow-hidden shadow-lg">
+          <div className="overflow-hidden rounded-lg border border-gray-200">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2374.123456789!2d-3.0123456789!3d53.6456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b1234567890ab%3A0x1234567890abcdef!2s54%20Eastbank%20St%2C%20Southport%20PR8%201ES%2C%20UK!5e0!3m2!1sen!2suk!4v1234567890123!5m2!1sen!2suk"
               width="100%"

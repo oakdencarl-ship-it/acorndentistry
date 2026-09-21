@@ -37,7 +37,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
         style={{ backgroundColor: '#77576D' }}
       >
         {/* Liquid drip effects */}
-        <div className={`absolute inset-0 transition-all duration-1200 ease-out ${
+        <div className={`absolute inset-0 transition-all duration-1000 ease-out ${
           phase === 'liquidMelt' ? 'transform translate-y-full' : ''
         }`}>
           {/* Multiple liquid drip layers for realistic effect */}
@@ -81,9 +81,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
           <img 
             src="/Acorn Dentistry Logo Design (1).png" 
             alt="Acorn Dentistry Southport" 
-            className={`h-96 w-auto mx-auto rounded-2xl shadow-2xl filter drop-shadow-2xl transition-all duration-1000 ease-out ${
-              phase === 'logoFloat' ? 'shadow-3xl' : ''
-            }`}
+            className="mx-auto h-40 max-w-[80vw] rounded-lg object-contain shadow-xl transition-all duration-700 ease-out sm:h-56 md:h-72"
             style={{
               filter: phase === 'logoFloat' ? 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3))' : 
                       'drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15))'

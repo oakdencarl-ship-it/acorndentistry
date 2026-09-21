@@ -57,10 +57,10 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="mb-6 text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
             Dental Treatment Pricing in Southport
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-600 md:text-xl">
             We believe in clear, upfront pricing with no hidden costs. Explore our treatment fees 
             for private dentistry, facial aesthetics, sedation and hygiene services, plus flexible payment options.
             As part of our commitment to whole-family care, children of registered active patients receive free comprehensive dental examinations when their parent or guardian is an active patient.
@@ -69,9 +69,9 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
 
         {/* Private Pricing */}
         <div className="mb-12">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <div className="flex items-center mb-6">
-              <div className="bg-primary-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+          <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+            <div className="mb-6 flex items-start gap-4 sm:items-center">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary-100">
                 <Star className="w-6 h-6 text-primary-600" />
               </div>
               <div>
@@ -82,13 +82,13 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {privateTreatments.map((item, index) => (
-                <div key={index} className="border border-gray-200 rounded-lg p-4 hover:border-primary-300 transition-colors relative">
+                <div key={index} className="relative rounded-lg border border-gray-200 p-4 transition-colors hover:border-primary-300">
                   {item.offer && (
-                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap shadow-md">
+                    <span className="mb-3 inline-flex max-w-full rounded-full bg-green-600 px-3 py-1 text-xs font-semibold leading-snug text-white shadow-sm">
                       {item.offer}
                     </span>
                   )}
-                  <h3 className="font-semibold text-gray-900 mb-2 mt-1">{item.treatment}</h3>
+                  <h3 className="mb-2 mt-1 font-semibold text-gray-900">{item.treatment}</h3>
                   <p className="text-primary-600 font-bold text-lg">{item.price}</p>
                 </div>
               ))}
@@ -98,9 +98,9 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
 
         {/* Facial Aesthetics Pricing */}
         <div className="mb-12">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <div className="flex items-center mb-6">
-              <div className="bg-pink-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+          <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+            <div className="mb-6 flex items-start gap-4 sm:items-center">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-pink-100">
                 <Sparkles className="w-6 h-6 text-pink-600" />
               </div>
               <div>
@@ -129,9 +129,9 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
 
         {/* Sedation Pricing */}
         <div className="mb-12">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <div className="flex items-center mb-6">
-              <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+          <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+            <div className="mb-6 flex items-start gap-4 sm:items-center">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-green-100">
                 <Zap className="w-6 h-6 text-green-600" />
               </div>
               <div>
@@ -160,9 +160,9 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
 
         {/* Dental Hygiene Pricing */}
         <div className="mb-12">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <div className="flex items-center mb-6">
-              <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+          <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+            <div className="mb-6 flex items-start gap-4 sm:items-center">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-100">
                 <Smile className="w-6 h-6 text-blue-600" />
               </div>
               <div>
@@ -190,9 +190,9 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
         </div>
 
         {/* Payment Options */}
-        <div className="bg-white rounded-xl shadow-lg p-8">
-          <div className="flex items-center mb-6">
-            <div className="bg-accent-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+        <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+          <div className="mb-6 flex items-start gap-4 sm:items-center">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent-100">
               <CreditCard className="w-6 h-6 text-accent-600" />
             </div>
             <div>
@@ -204,7 +204,7 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center p-4">
               <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                <CreditCard className="w-8 h-8 text-primary-600 transition-transform duration-300 hover:scale-110 hover:rotate-3" />
+                <CreditCard className="w-8 h-8 text-primary-600" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Card Payments</h3>
               <p className="text-gray-600 text-sm">Visa, Mastercard, American Express accepted</p>
@@ -212,7 +212,7 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
             
             <div className="text-center p-4">
               <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Heart className="w-6 h-6 text-purple-600 transition-all duration-300 hover:scale-125 hover:text-purple-700" />
+                <Heart className="w-6 h-6 text-purple-600" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2"> Dental Finance</h3>
               <p className="text-gray-600 text-sm">Available on treatments over £500</p>
@@ -220,7 +220,7 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
             
             <div className="text-center p-4">
               <div className="bg-accent-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Shield className="w-8 h-8 text-accent-600 transition-all duration-300 hover:scale-110 hover:-translate-y-1" />
+                <Shield className="w-8 h-8 text-accent-600" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Insurance</h3>
               <p className="text-gray-600 text-sm">We work with most dental insurance providers</p>
@@ -228,7 +228,7 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
             
             <div className="text-center p-4">
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Star className="w-8 h-8 text-green-600 transition-all duration-300 hover:scale-110 hover:rotate-12 hover:text-yellow-500" />
+                <Star className="w-8 h-8 text-green-600" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Cash Payments</h3>
               <p className="text-gray-600 text-sm">Cash and bank transfers accepted</p>
@@ -238,7 +238,7 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
 
         {/* Contact CTA */}
         <div className="mt-12 text-center">
-          <div className="bg-gradient-to-r from-primary-600 to-purple-600 text-white rounded-xl p-8">
+          <div className="rounded-lg bg-gradient-to-r from-primary-600 to-purple-600 p-6 text-white sm:p-8">
             <h2 className="text-2xl font-bold mb-4">Questions About Pricing?</h2>
             <p className="text-lg text-primary-100 mb-6">
               Our team is happy to discuss treatment options and provide detailed cost estimates.
