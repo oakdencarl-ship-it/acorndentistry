@@ -260,7 +260,7 @@ const Home: React.FC<HomeProps> = ({ setActiveTab }) => {
             
             <div className="flex justify-center space-x-6">
               <a
-                href="https://facebook.com/acorndentistrysouthport"
+                href="https://facebook.com/acorndentistry"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Facebook"
