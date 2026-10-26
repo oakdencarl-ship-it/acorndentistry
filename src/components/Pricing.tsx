@@ -85,9 +85,6 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {privateTreatments.map((item, index) => (
                 <div key={index} className="relative rounded-lg border border-gray-200 p-4 transition-colors hover:border-primary-300">
-                  {item.offer && (
-                    <span className="mb-3 inline-flex max-w-full rounded-full bg-green-600 px-3 py-1 text-xs font-semibold leading-snug text-white shadow-sm">
-                      {item.offer}
                     </span>
                   )}
                   <h3 className="mb-2 mt-1 font-semibold text-gray-900">{item.treatment}</h3>
