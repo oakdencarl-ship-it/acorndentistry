@@ -6,7 +6,7 @@ interface PricingProps {
 
 const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
    const privateTreatments = [
-    { treatment: 'Comprehensive Examination', price: '£45', offer: 'Introductory Offer - £35' },
+    { treatment: 'Comprehensive Examination', price: '£65', offer: 'Introductory Offer - £35' },
     { treatment: 'New Patient Examination', price: '£65' },
     { treatment: 'Emergency Appointment', price: '£80' },
     { treatment: 'Fillings', price: 'from £120' },
@@ -23,7 +23,8 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
     { treatment: 'Orthodontic Aligner Consultation', price: '£50' },
     { treatment: 'Orthodontic Aligners', price: 'from £2000' },
     { treatment: 'Removable Retainer', price: '£100 per arch' },
-    { treatment: 'Sports/Bite Guards', price: '£130 per arch' }
+    { treatment: 'Sports/Bite Guards', price: '£130 per arch' },
+    { treatment: 'Required X-Rays', price: '£9' }
   ];
 
   const facialAesthetics = [
