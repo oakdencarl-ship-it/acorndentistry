@@ -6,24 +6,25 @@ interface PricingProps {
 
 const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
    const privateTreatments = [
-    { treatment: 'Comprehensive Examination', price: '£65', offer: 'Introductory Offer - £35' },
+    { treatment: 'Comprehensive Examination', price: '£65' },
     { treatment: 'New Patient Examination', price: '£65' },
     { treatment: 'Emergency Appointment', price: '£80' },
-    { treatment: 'Fillings', price: 'from £120' },
+    { treatment: 'Fillings', price: 'from £180' },
     { treatment: 'Root Canal', price: 'from £350' },
-    { treatment: 'Extraction', price: '£120' },
-    { treatment: 'Complex Extraction', price: '£220' },     
+    { treatment: 'Extraction', price: 'from £180' },
+    { treatment: 'Complex Extraction', price: 'from £220' },     
     { treatment: 'Crowns', price: 'from £600' },
     { treatment: 'Bridges', price: '£600 per unit' },
-    { treatment: 'Dentures', price: 'from £350' },
+    { treatment: 'Dentures', price: 'from £450' },
     { treatment: 'Teeth Whitening', price: '£300' },
     { treatment: 'Porcelain Veneers', price: '£400 per tooth' },
-    { treatment: 'Composite Edge Bonding', price: '£150 per tooth' },
+    { treatment: 'Composite Edge Bonding', price: 'from £180' },
     { treatment: 'Composite Veneers', price: '£350 per tooth' },
     { treatment: 'Orthodontic Aligner Consultation', price: '£50' },
-    { treatment: 'Orthodontic Aligners', price: 'from £2000' },
-    { treatment: 'Removable Retainer', price: '£100 per arch' },
+    { treatment: 'Orthodontic Aligners', price: 'from £2500' },
+    { treatment: 'Removable Retainer', price: '£150 per arch' },
     { treatment: 'Sports/Bite Guards', price: '£130 per arch' },
+    { treatment: 'Anti-Snoring Devices', price: 'from £550' },
     { treatment: 'Required X-Rays', price: '£9' }
   ];
 
@@ -48,7 +49,7 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
   const hygieneServices = [
     { treatment: 'Standard Hygienist Appointment', price: '£70' },
     { treatment: 'Deep Clean (Scaling & Root Planing)', price: '£100-£120' },
-    { treatment: 'Airflow (Enhanced, gentle cleaning)', price: '£95' },
+    { treatment: 'Biofilm Therapy (Enhanced, gentle cleaning)', price: '£95' },
     { treatment: 'Periodontal Maintenance', price: '£85' },
     { treatment: 'Fluoride Treatment', price: '£25' }
   ];
