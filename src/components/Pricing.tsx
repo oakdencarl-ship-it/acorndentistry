@@ -90,7 +90,7 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
                   <h3 className="mb-2 mt-1 font-semibold text-gray-900">{item.treatment}</h3>
                   <p className="text-primary-600 font-bold text-lg">{item.price}</p>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>
