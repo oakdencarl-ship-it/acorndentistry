@@ -1,4 +1,4 @@
-import { Star, Shield, CreditCard, Heart, Sparkles, Zap, Smile } from 'lucide-react';
+import { Star, Shield, CreditCard, Heart, Sparkles, Zap, Smile, BadgeCheck } from 'lucide-react';
 
 interface PricingProps {
   setActiveTab?: (tab: string) => void;
@@ -185,6 +185,101 @@ const Pricing: React.FC<PricingProps> = ({ setActiveTab }) => {
               <p className="text-sm text-blue-800">
                 <strong>Recommendation:</strong> Regular hygienist visits every 6 months help prevent 
                 gum disease and maintain optimal oral health. Deep cleaning may require multiple appointments.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Membership Options */}
+        <div className="mb-12">
+          <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+            <div className="mb-8 flex items-start gap-4 sm:items-center">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent-100">
+                <BadgeCheck className="w-6 h-6 text-accent-600" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900">Membership Options</h2>
+                <p className="text-gray-600">Spread the cost of your routine dental care with a monthly plan via PracticePlan</p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Maintenance Plan */}
+              <div className="rounded-lg border-2 border-primary-200 bg-primary-50/40 p-6 transition-colors hover:border-primary-400">
+                <div className="mb-4">
+                  <h3 className="text-xl font-bold text-gray-900">Maintenance Plan</h3>
+                  <p className="text-sm text-gray-500">via PracticePlan</p>
+                </div>
+                <p className="mb-6">
+                  <span className="text-4xl font-bold text-primary-600">£22.30</span>
+                  <span className="text-gray-500"> /month</span>
+                </p>
+                <ul className="space-y-3 text-gray-700">
+                  <li className="flex items-start gap-3">
+                    <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary-600" />
+                    2 checkups per year
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary-600" />
+                    2 hygiene appointments per year
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary-600" />
+                    15% off treatment prices
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary-600" />
+                    X-rays included
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary-600" />
+                    Worldwide Dental Emergency Assistance
+                  </li>
+                </ul>
+              </div>
+
+              {/* Enhanced Maintenance Plan */}
+              <div className="relative rounded-lg border-2 border-accent-300 bg-accent-50/40 p-6 transition-colors hover:border-accent-500">
+                <span className="absolute -top-3 right-6 inline-flex rounded-full bg-accent-600 px-3 py-1 text-xs font-semibold text-white shadow-sm">
+                  Most Hygiene
+                </span>
+                <div className="mb-4">
+                  <h3 className="text-xl font-bold text-gray-900">Enhanced Maintenance Plan</h3>
+                  <p className="text-sm text-gray-500">via PracticePlan</p>
+                </div>
+                <p className="mb-6">
+                  <span className="text-4xl font-bold text-accent-600">£33.90</span>
+                  <span className="text-gray-500"> /month</span>
+                </p>
+                <ul className="space-y-3 text-gray-700">
+                  <li className="flex items-start gap-3">
+                    <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent-600" />
+                    2 checkups per year
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent-600" />
+                    4 hygiene appointments per year
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent-600" />
+                    15% off treatment prices
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent-600" />
+                    X-rays included
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent-600" />
+                    Worldwide Dental Emergency Assistance
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-6 p-4 bg-accent-50 rounded-lg">
+              <p className="text-sm text-accent-800">
+                <strong>Please note:</strong> Both plans are provided via PracticePlan and help spread the cost of your 
+                routine dental care into an easy monthly payment. Ask our team for full terms and to sign up.
               </p>
             </div>
           </div>
